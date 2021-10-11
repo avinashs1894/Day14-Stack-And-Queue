@@ -1,7 +1,6 @@
 package com.bridglab.StackAndQueue;
 
-public class Stack<T> {
-	
+public class PickAndPop<T> {
 	 private class Node {
 	        T data;
 	        Node link;
@@ -10,7 +9,7 @@ public class Stack<T> {
 	    Node topper;
 
 	    //default constructor give null value at topper
-	    public Stack() {
+	    public PickAndPop() {
 	        this.topper = null;
 	    }
 
@@ -29,6 +28,26 @@ public class Stack<T> {
 
 	    }
 
+	    //pop method to pop the stack value
+	    public void pop(){
+	        if(topper == null){
+	            System.out.println("stack underflow");
+	        }
+	        else
+	            topper = (topper).link;
+	    }
+	    //peek method give topper value
+
+	    public T peek(){
+	        if(topper != null){
+	            return topper.data;
+	        }
+	        else{
+	            System.out.println("stack underflow");
+	            return null;
+	        }
+	    }
+
 	    //display method to give the stack data
 	    public void display() {
 	        Node temp = null;
@@ -42,7 +61,6 @@ public class Stack<T> {
 	            temp = temp.link;
 	        }
 	    }
-	    
 	    public static void main(String args[]){
 	        //  stack implement use linked list
 
@@ -50,11 +68,18 @@ public class Stack<T> {
 
 	        //create object and give the push method value
 
-	       Stack StacksandQueuesdemo = new Stack();
+	        PickAndPop StacksandQueuesdemo = new PickAndPop();
 
 	        StacksandQueuesdemo.push(56);
 	        StacksandQueuesdemo.push(30);
 	        StacksandQueuesdemo.push(70);
+	        StacksandQueuesdemo.display();
+
+
+	            System.out.println("top value"+StacksandQueuesdemo.peek());
+
+	        StacksandQueuesdemo.pop();
+	        StacksandQueuesdemo.pop();
 	        StacksandQueuesdemo.display();
 
 
